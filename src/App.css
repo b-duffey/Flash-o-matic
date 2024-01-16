@@ -1,0 +1,37 @@
+h1, h2, h3 {
+    padding: 10px;
+    margin-bottom: 10px;;
+}
+.deck-button-container {
+    display: flex;
+    justify-content: right;
+}
+.deck-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px ;
+   
+  }
+  
+  .study-card-container {
+    /* Add styling properties */
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  .cards-in-deck-container {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  .card-button-container {
+    display: flex;
+    justify-content: right;
+  }
+  .card-container {
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+ 
+  }
+
+  
+ 
