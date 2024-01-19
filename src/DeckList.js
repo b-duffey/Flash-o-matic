@@ -9,7 +9,6 @@ function DeckList() {
 
   useEffect(() => {
     const abortController = new AbortController();
-
     const fetchData = async () => {
       try {
         const deckData = await listDecks(abortController.signal);
@@ -26,8 +25,7 @@ function DeckList() {
     fetchData();
 
     return () => abortController.abort();
-  }, []);
-
+  }, [deckId]);
   const handleStudy = (deckId) => {
     // Navigate to the Study component with the selected deckId
     history.push(`/decks/${deckId}/study`);
@@ -63,8 +61,7 @@ function DeckList() {
               <strong>{deck.name}</strong>
               <p>{deck.description}</p>
               <p>
-                {deck.cards.filter((card) => card.deckId === deck.id).length}{" "}
-                cards
+                {deck.cards.length} {deck.cards.length === 1 ? "card" : "cards"}
               </p>
             </div>
 

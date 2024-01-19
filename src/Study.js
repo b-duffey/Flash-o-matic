@@ -70,18 +70,12 @@ function Study() {
                 <Link to="/">Home</Link>
               </span>
             </li>
-            <li
-              className="breadcrumb-item"
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <span className="btn btn-link navbar-text">
-                <Link to={`/decks/${deckId}`}>{deck.name}</Link>
-              </span>
-            </li>
           </ol>
         </nav>
 
-        <h2>{deck.name}: Study</h2>
+        <h2>
+          <span className="deck-name-text">{deck.name}</span>: Study
+        </h2>
 
         <h3>
           Card {currentCardIndex + 1} of {deck.cards.length}
@@ -94,12 +88,14 @@ function Study() {
             Flip
           </button>
           {/* Add a button to navigate to the next card */}
-          <button
-            className="btn btn-success bi bi-caret-right-fill"
-            onClick={handleNext}
-          >
-            Next
-          </button>
+          {isFlipped && (
+            <button
+              className="btn btn-success bi bi-caret-right-fill"
+              onClick={handleNext}
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     );
@@ -107,10 +103,14 @@ function Study() {
     // Handle the case where there are no cards in the deck
     return (
       <div>
-        <h1>{deck.name}: Study</h1>
+        <h1>
+          <span className="not-enough-cards-deck">{deck.name}</span>: Study
+        </h1>
         <p>Not enough cards. Add cards to study.</p>
         {/* Add a button to navigate to Add Card component */}
-        <button onClick={() => history.push(`/decks/${deckId}/cards/new`)}>
+        <button
+          onClick={() => history.push(`/decks/${deckId}/cards/new`, { deck })}
+        >
           Add Card
         </button>
       </div>

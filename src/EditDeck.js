@@ -88,7 +88,9 @@ function EditDeck() {
           <li className="breadcrumb-item navbar-text">Edit Deck</li>
         </ol>
       </nav>
-      <h2>Edit Deck</h2>
+      <h2>
+        Edit Deck <span className="deck-name">{formData.name}</span>
+      </h2>
       <div className="border border-2 border-primarybg-secondary-bd-gradient">
         <div className="mb-3 ml-3">
           <form>

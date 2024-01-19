@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams, useLocation, Link } from "react-router-dom";
 import { readCard, updateCard } from "./utils/api/index";
+import CardForm from "./CardForm";
 
 function EditCard() {
   const { deckId, cardId } = useParams();
@@ -8,7 +9,8 @@ function EditCard() {
   const location = useLocation();
   const deck = location.state.deck;
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({}); // Initialize formData state
+  const [updatedCardData, setUpdatedCardData] = useState({}); // State to hold the latest card data
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -36,14 +38,18 @@ function EditCard() {
     });
   };
 
-  const handleSave = async () => {
+  const handleSave = async (formData) => {
     try {
-      await updateCard(formData);
+      const updatedCardData = await updateCard(formData);
       console.log("Card saved successfully");
+
+      // Set the latest card data to display in the form
+      setUpdatedCardData(updatedCardData);
     } catch (error) {
       console.error("Error saving card:", error);
     }
   };
+
   const handleDone = () => {
     // Navigate to the Deck component after editing the card
     history.push(`/decks/${deckId}`);
@@ -80,56 +86,12 @@ function EditCard() {
           <li className="breadcrumb-item navbar-text">{`Edit Card ${cardId}`}</li>
         </ol>
       </nav>
-      <h2>Edit Card</h2>
-      <div className="border border-2 border-primarybg-secondary-bd-gradient">
-        <div className="mb-3 ml-3">
-          <form>
-            <label htmlFor="front" className="form-label">
-              Front:
-              <textarea
-                id="front"
-                type="text"
-                name="front"
-                onChange={handleChange}
-                value={formData.front || ""}
-                className="form-control"
-              />
-            </label>
-            <br />
-            <label htmlFor="back" className="form-label">
-              Back:
-              <textarea
-                id="back"
-                type="text"
-                name="back"
-                onChange={handleChange}
-                value={formData.back || ""}
-                className="form-control"
-              />
-            </label>
-            <br />
-            <div
-              className="btn-group"
-              role="group"
-              aria-label="Basic outlined example"
-            >
-              <button
-                className="bi bi-floppy btn btn-outline-primary"
-                type="button"
-                onClick={handleSave}
-              />
 
-              <button
-                className="btn btn-outline-primary"
-                type="button"
-                onClick={handleDone}
-              >
-                Done
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <CardForm
+        initialFormData={formData}
+        onSave={handleSave}
+        onCancel={handleDone}
+      />
     </div>
   );
 }

@@ -111,7 +111,8 @@ function Deck() {
           <ol>
             {deck.cards.map((card) => (
               <li key={card.id} className="card-container">
-                {card.front} - {card.back}
+                <span className="card-text-front">{card.front}</span> -
+                <span className="card-text-back">{card.back}</span>
                 <div className="card-button-container">
                   <button
                     className="btn btn-info bi bi-pencil-square mt-2 mb-2 ml-2"

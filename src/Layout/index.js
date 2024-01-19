@@ -22,7 +22,7 @@ function Layout() {
           <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
           </Route>
-          <Route path="/decks/:deckId/cards/new" exact>
+          <Route path="/decks/:deckId/cards/new">
             <AddCard />
           </Route>
           <Route path="/decks/:deckId/edit">

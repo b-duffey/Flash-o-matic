@@ -19,7 +19,7 @@
   "cards": [
     {
       "id": 1,
-      "front": "Differentiate between Real DOM and Virtual DOM:",
+      "front": "Differentiate between Real DOM and Virtual DOM?",
       "back": "Virtual DOM updates are faster but do not directly update the HTML!",
       "deckId": 1
     },
@@ -58,6 +58,66 @@
       "back": "Hi there",
       "deckId": 1,
       "id": 8
+    },
+    {
+      "front": "New card",
+      "back": "New card",
+      "deckId": 3,
+      "id": 9
+    },
+    {
+      "front": "test",
+      "back": "test",
+      "deckId": 1,
+      "id": 10
+    },
+    {
+      "front": "sw",
+      "back": "dsf",
+      "deckId": 1,
+      "id": 11
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 12
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 13
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 14
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 15
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 16
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 17
+    },
+    {
+      "front": "",
+      "back": "",
+      "deckId": 1,
+      "id": 18
     }
   ]
 }
