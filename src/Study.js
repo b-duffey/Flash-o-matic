@@ -109,6 +109,8 @@ function Study() {
         <p>Not enough cards. Add cards to study.</p>
         {/* Add a button to navigate to Add Card component */}
         <button
+          type="button"
+          className="btn btn-primary bi bi-plus-circle m-2"
           onClick={() => history.push(`/decks/${deckId}/cards/new`, { deck })}
         >
           Add Card
